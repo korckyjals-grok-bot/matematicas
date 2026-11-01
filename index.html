@@ -12,6 +12,7 @@
 <div class="card"><p style="font-size:1.2rem;text-align:center;margin:0">¡Hola, <span class="nm">amiguito</span>! Elige un juego y practica números: estudia, practica y supera el desafío de 60 segundos. <a href="#" onclick="cambiarNombre();return false" style="font-size:.9rem;color:#2b8de2;white-space:nowrap">✏️ Cambiar nombre</a></p></div>
 <div class="grid">
 <a class="card app" href="https://korckyjals-grok-bot.github.io/nachbarzahlen/" data-app="https://korckyjals-grok-bot.github.io/nachbarzahlen/"><span class="em">↔️</span><span><b>Nachbarzahlen</b><br><small>Antecesor, sucesor, decenas y centenas</small></span><span class="ck" data-k="nachbar"></span></a>
+<a class="card app" href="https://korckyjals-grok-bot.github.io/runden/" data-app="https://korckyjals-grok-bot.github.io/runden/"><span class="em">🎯</span><span><b>Runden</b><br><small>Redondear a Z, H, T, ZT y HT</small></span><span class="ck" data-k="runden"></span></a>
 <a class="card app" href="https://korckyjals-grok-bot.github.io/tablas-jorgito/" data-app="https://korckyjals-grok-bot.github.io/tablas-jorgito/"><span class="em">✖️</span><span><b>Tablas de multiplicar</b><br><small>Practica del 1 al 12</small></span><span class="ck" data-k="tablas"></span></a>
 </div>
 <a class="back" href="https://korckyjals-grok-bot.github.io/materias/" data-app="https://korckyjals-grok-bot.github.io/materias/">🏠 Todas las materias</a>
@@ -43,6 +44,9 @@ if(window.ASK_NAME&&NM()=="amiguito")cambiarNombre();
 document.querySelectorAll(".ck").forEach(e=>{
   if(e.dataset.k==="nachbar"){
     let c=[];try{c=JSON.parse(localStorage.getItem("aleman_check_nachbar")||"[]")}catch(x){}
+    if(c.length)e.innerHTML=(c.length>=3?"🏅 ":"")+"<b>✔</b> "+Math.min(c.length,3)+"/3";
+  } else if(e.dataset.k==="runden"){
+    let c=[];try{c=JSON.parse(localStorage.getItem("aleman_check_runden")||"[]")}catch(x){}
     if(c.length)e.innerHTML=(c.length>=3?"🏅 ":"")+"<b>✔</b> "+Math.min(c.length,3)+"/3";
   } else if(e.dataset.k==="tablas"){
     const b=+localStorage.getItem("tablasBest")||0;

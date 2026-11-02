@@ -13,6 +13,7 @@
 <div class="grid">
 <a class="card app" href="https://korckyjals-grok-bot.github.io/nachbarzahlen/" data-app="https://korckyjals-grok-bot.github.io/nachbarzahlen/"><span class="em">↔️</span><span><b>Nachbarzahlen</b><br><small>Antecesor, sucesor, decenas y centenas</small></span><span class="ck" data-k="nachbar"></span></a>
 <a class="card app" href="https://korckyjals-grok-bot.github.io/runden/" data-app="https://korckyjals-grok-bot.github.io/runden/"><span class="em">🎯</span><span><b>Runden</b><br><small>Redondear a Z, H, T, ZT y HT</small></span><span class="ck" data-k="runden"></span></a>
+<a class="card app" href="https://korckyjals-grok-bot.github.io/zahlenwort/" data-app="https://korckyjals-grok-bot.github.io/zahlenwort/"><span class="em">🔤</span><span><b>Zahlenwort</b><br><small>Escribir números en alemán hasta un millón</small></span><span class="ck" data-k="zahlenwort"></span></a>
 <a class="card app" href="https://korckyjals-grok-bot.github.io/tablas-jorgito/" data-app="https://korckyjals-grok-bot.github.io/tablas-jorgito/"><span class="em">✖️</span><span><b>Tablas de multiplicar</b><br><small>Practica del 1 al 12</small></span><span class="ck" data-k="tablas"></span></a>
 </div>
 <a class="back" href="https://korckyjals-grok-bot.github.io/materias/" data-app="https://korckyjals-grok-bot.github.io/materias/">🏠 Todas las materias</a>
@@ -48,6 +49,9 @@ document.querySelectorAll(".ck").forEach(e=>{
   } else if(e.dataset.k==="runden"){
     let c=[];try{c=JSON.parse(localStorage.getItem("aleman_check_runden")||"[]")}catch(x){}
     if(c.length)e.innerHTML=(c.length>=3?"🏅 ":"")+"<b>✔</b> "+Math.min(c.length,3)+"/3";
+  } else if(e.dataset.k==="zahlenwort"){
+    let c=[];try{c=JSON.parse(localStorage.getItem("aleman_check_zahlenwort")||"[]")}catch(x){}
+    if(c.length)e.innerHTML=(c.length>=5?"🏅 ":"")+"<b>✔</b> "+Math.min(c.length,5)+"/5";
   } else if(e.dataset.k==="tablas"){
     const b=+localStorage.getItem("tablasBest")||0;
     if(b>=13)e.innerHTML="<b>✔</b>";
